@@ -1,17 +1,16 @@
 import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 
+const cursorNotAllowed = css({
+  pointerEvents: 'visible',
+  cursor: 'not-allowed',
+});
 
-
-const disabledStyle = styled(Button)`
-  &:disabled {
-    pointer-events: visible;
-    cursor: not-allowed;
-  }
-`;
+const disabledStyle = css({
+  '&:disabled': cursorNotAllowed,
+});
 
 /**
  * `Button` 元件代表一個可點擊的按鈕，在使用者點擊之後會觸發相對應的業務邏輯。
@@ -30,12 +29,7 @@ export const muiButton = ({
       variant={variant}
       color={color}
       disabled={isDisabled}
-      css={css(`
-        &:disabled {
-          pointer-events: visible;
-          cursor: not-allowed;
-        }
-        `)}
+      css={disabledStyle}
       {...props}
     >
       {label}
