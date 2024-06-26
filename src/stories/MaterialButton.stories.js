@@ -20,3 +20,10 @@ export const Disabled = {
     isDisabled: true,
   },
 };
+
+export const Loading = {
+  args: {
+    label: '載入中...',
+    isLoading: true,
+  }
+};

@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
+import CircularProgress from '@mui/material/CircularProgress';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 
@@ -12,6 +13,14 @@ const disabledStyle = css({
   '&:disabled': cursorNotAllowed,
 });
 
+const styleLoading = ({ isLoading }) => css`
+  ${isLoading &&
+  `
+    margin-right: 8px;
+    color: #fff;
+  `}
+`;
+
 /**
  * `Button` 元件代表一個可點擊的按鈕，在使用者點擊之後會觸發相對應的業務邏輯。
  */
@@ -20,9 +29,9 @@ export const muiButton = ({
   label,
   color,
   isDisabled,
+  isLoading,
   ...props
 }) => {
-  const isDisabledStyle = isDisabled ? disabledStyle : null;
   return (
     <Button
       type="button"
@@ -32,7 +41,13 @@ export const muiButton = ({
       css={disabledStyle}
       {...props}
     >
-      {label}
+      {isLoading && (
+      <CircularProgress
+        css={styleLoading({ isLoading })}
+        size={24}
+      />
+    )}
+      <span>{label}</span>
     </Button>
   )
 };
@@ -44,10 +59,13 @@ muiButton.propTypes = {
   color: PropTypes.oneOf(['primary', 'secondary', 'success', 'error', 'info', 'warning']),
   /** 禁用狀態 */
   disabled: PropTypes.bool,
+  /** 載入狀態 */
+  isLoading: PropTypes.bool,
 }
 
 muiButton.defaultProps = {
   variant: 'contained',
   color: 'primary',
   isDisabled: false,
+  isLoading: false,
 };
