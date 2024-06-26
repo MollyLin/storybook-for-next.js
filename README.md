@@ -16,14 +16,10 @@ Ref: [Material UI_Spacing](https://mui.com/material-ui/customization/spacing/)
 >You have tried to stringify object returned from css function. It isn't supposed to be used directly (e.g. as value of the className prop), but rather handed to emotion so it can handle it (e.g. as value of css prop).
 且樣式無更新
 
-原因:
-使用時機: 當使用 `<></>` 取代 `<Fragment></Fragment>` 時。
-解法:
-在引入 `@emotion/react` 的上方填上對應的註解，
-- if use Typescript:
-``` /** @jsx jsx */ ```
-- if use Javascript:
-``` /** @jsxImportSource @emotion/react */ ```
+原因: 使用 `jsx` function 取代 `React.createElement`。
+解法: 在引入 `@emotion/react` 的上方填上對應的註解: ``` /** @jsxImportSource @emotion/react */ ```。
+
+Ref: [Emotion_jsx-pragma](https://emotion.sh/docs/css-prop#jsx-pragma)
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
