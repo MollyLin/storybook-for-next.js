@@ -1,4 +1,6 @@
 import { muiButton } from './MaterialButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
 
 export default {
   title: 'Example/MaterialButton',
@@ -27,3 +29,19 @@ export const Loading = {
     isLoading: true,
   }
 };
+
+export const StartIcon = {
+  args: {
+    variant: 'outlined',
+    label: '刪除',
+    startIcon: <DeleteIcon />,
+  }
+}
+
+export const EndIcon = {
+  args: {
+    variant: 'outlined',
+    label: '分享',
+    endIcon: <SendIcon />,
+  }
+}
