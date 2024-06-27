@@ -24,6 +24,9 @@ Ref: [Emotion_jsx-pragma](https://emotion.sh/docs/css-prop#jsx-pragma)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+#### Button- Cursor not-allowed
+- You should add `pointer-events: none;` back when you need to display [tooltips on disabled elements.](https://mui.com/material-ui/react-tooltip/#disabled-elements)
+
 ## Getting Started
 
 First, run the development server:

@@ -5,6 +5,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+// Ref: https://mui.com/material-ui/react-button/#cursor-not-allowed
 const cursorNotAllowed = css({
   pointerEvents: 'visible',
   cursor: 'not-allowed',
