@@ -10,12 +10,21 @@ const cursorNotAllowed = css({
   cursor: 'not-allowed',
 });
 
-const disabledStyle = css({
-  '&:disabled': cursorNotAllowed,
-});
+const enhanceStyleButton = ({ isLoading }) => css`
+  min-width: 100px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  ${ isLoading &&
+   `align-items: center;`
+  }
+  &:disabled {
+    ${cursorNotAllowed}
+  }
+`;
 
-// 參考寫法: https://stackoverflow.com/a/62518924
-const styleLoading = ({ isLoading }) => css`
+const styleCircularProgress = ({ isLoading }) => css`
   ${isLoading &&
   `
     margin-right: 8px;
@@ -23,11 +32,11 @@ const styleLoading = ({ isLoading }) => css`
   `}
 `;
 
-const StartIcon = styled.span`
+const PrefixIcon = styled.span`
   margin-right: 8px;
 `;
 
-const EndIcon = styled.span`
+const SuffixIcon = styled.span`
   margin-left: 8px;
 `;
 
@@ -41,8 +50,8 @@ export const muiButton = ({
   color,
   isDisabled,
   isLoading,
-  startIcon,
-  endIcon,
+  prefixIcon,
+  suffixIcon,
   ...props
 }) => {
   return (
@@ -52,18 +61,20 @@ export const muiButton = ({
       size={size}
       color={color}
       disabled={isDisabled}
-      css={disabledStyle}
+      css={enhanceStyleButton({isLoading})}
       {...props}
     >
-      {isLoading && (
-      <CircularProgress
-        css={styleLoading({ isLoading })}
-        size={16}
-      />
-    )}
-      {startIcon && <StartIcon size={16}>{startIcon}</StartIcon>}
-      <span>{label}</span>
-      {endIcon && <EndIcon>{endIcon}</EndIcon>}
+      <>
+        {isLoading && (
+          <CircularProgress
+            css={styleCircularProgress({ isLoading })}
+            size={16}
+          />
+        )}
+        {prefixIcon && <PrefixIcon>{prefixIcon}</PrefixIcon>}
+        <span>{label}</span>
+        {suffixIcon && <SuffixIcon>{suffixIcon}</SuffixIcon>}
+      </>
     </Button>
   )
 };
@@ -80,9 +91,9 @@ muiButton.propTypes = {
   /** 載入狀態 */
   isLoading: PropTypes.bool,
   /** 設置按鈕文字前方圖示 */
-  startIcon: PropTypes.element,
+  prefixIcon: PropTypes.element,
   /** 設置按鈕文字後方圖示 */
-  endIcon: PropTypes.element,
+  suffixIcon: PropTypes.element,
 }
 
 muiButton.defaultProps = {
@@ -91,6 +102,6 @@ muiButton.defaultProps = {
   color: 'primary',
   isDisabled: false,
   isLoading: false,
-  startIcon: null,
-  endIcon: null,
+  prefixIcon: null,
+  suffixIcon: null,
 };

@@ -30,18 +30,29 @@ export const Loading = {
   }
 };
 
-export const StartIcon = {
+export const PrefixIcon = {
   args: {
     variant: 'outlined',
     label: '刪除',
-    startIcon: <DeleteIcon />,
+    prefixIcon: <DeleteIcon />,
   }
 }
 
-export const EndIcon = {
+export const SuffixIcon = {
   args: {
     variant: 'outlined',
     label: '分享',
+    suffixIcon: <SendIcon />,
+  }
+}
+
+export const CustomizeButton = {
+  args: {
+    label: '自訂按鈕',
     endIcon: <SendIcon />,
+    style: {
+      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      borderRadius: 50,
+    }
   }
 }
