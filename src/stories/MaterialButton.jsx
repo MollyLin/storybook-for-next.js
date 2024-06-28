@@ -34,7 +34,7 @@ const SuffixIcon = styled.span`
 `;
 
 /**
- * `Button` 元件代表一個可點擊的按鈕，在使用者點擊之後會觸發相對應的業務邏輯。
+ * Buttons / Floating Action Button
  */
 export const muiButton = ({
   variant,
@@ -60,7 +60,7 @@ export const muiButton = ({
       {isLoading && (
         <CircularProgress
           sx={{
-            marginRight: 1,
+            mr: 1,
             color: variant === 'contained' ? 'white' : color,
           }}
           size={16}

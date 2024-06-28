@@ -26,6 +26,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 #### Button- Cursor not-allowed
 - You should add `pointer-events: none;` back when you need to display [tooltips on disabled elements.](https://mui.com/material-ui/react-tooltip/#disabled-elements)
 
+### install `react-swipeable-views`
+下官方文件的指令會出現 `Could not resolve dependency...` 的訊息，爬[Issues list](https://github.com/oliviertassinari/react-swipeable-views/issues/683) 解法是下
+ `npm i react-swipeable-views --legacy-peer-deps` 解決 `NPM` 在處理 peer 依賴時的一些變化。
+
 ## Getting Started
 
 First, run the development server:
