@@ -25,14 +25,6 @@ const enhanceStyleButton = ({ isLoading }) => css`
   }
 `;
 
-const styleCircularProgress = ({ isLoading }) => css`
-  ${isLoading &&
-  `
-    margin-right: 8px;
-    color: #fff;
-  `}
-`;
-
 const PrefixIcon = styled.span`
   margin-right: 8px;
 `;
@@ -65,17 +57,18 @@ export const muiButton = ({
       css={enhanceStyleButton({isLoading})}
       {...props}
     >
-      <>
-        {isLoading && (
-          <CircularProgress
-            css={styleCircularProgress({ isLoading })}
-            size={16}
-          />
-        )}
-        {prefixIcon && <PrefixIcon>{prefixIcon}</PrefixIcon>}
-        <span>{label}</span>
-        {suffixIcon && <SuffixIcon>{suffixIcon}</SuffixIcon>}
-      </>
+      {isLoading && (
+        <CircularProgress
+          sx={{
+            marginRight: 1,
+            color: variant === 'contained' ? 'white' : color,
+          }}
+          size={16}
+        />
+      )}
+      {prefixIcon && <PrefixIcon>{prefixIcon}</PrefixIcon>}
+      <span>{label}</span>
+      {suffixIcon && <SuffixIcon>{suffixIcon}</SuffixIcon>}
     </Button>
   )
 };
