@@ -1,5 +1,5 @@
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled'
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
@@ -27,6 +27,24 @@ const Image = styled.img`
   object-fit: cover;
 `;
 
+const ControlButtonGroup = styled.div`
+  color: white;
+  position: absolute;
+  z-index: 10;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  & > svg {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+  }
+`;
+
 const imageSource = [
   {
     imgPath:
@@ -51,12 +69,31 @@ export const Carousel = ({}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageWidth, setImageWidth] = useState(600);
 
-  // 目前圖片左方的值 = 即將進場的 image 與目前的 image 距離 * 圖片的寬度(預設600)
-  const setLeftPosition = ({ itemIndex }) => (itemIndex - currentIndex) * imageWidth;
-
+  // initial 調整畫面
   const handleUpdateCarouselWidth = () => {
     const carouselWidth = carouselRef.current.clientWidth;
     setImageWidth(carouselWidth);
+  };
+
+  // 目前圖片左方的值 = 即將進場的 image 與目前的 image 距離 * 圖片的寬度(預設600)
+  const setLeftPosition = ({ itemIndex }) => (itemIndex - currentIndex) * imageWidth;
+
+  const getIndexes = useCallback(() => {
+    const prevIndex = currentIndex - 1 < 0 ? imageSource.length - 1 : currentIndex - 1;
+    const nextIndex = (currentIndex + 1) % imageSource.length;
+    return {
+      prevIndex, nextIndex,
+    };
+  }, [currentIndex]);
+
+  const handlePrev = () => {
+    const { prevIndex } = getIndexes();
+    setCurrentIndex(prevIndex);
+  };
+
+  const handleNext = () => {
+    const { nextIndex } = getIndexes();
+    setCurrentIndex(nextIndex);
   };
 
   useEffect(() => {
@@ -84,6 +121,10 @@ export const Carousel = ({}) => {
             ))
           }
         </ImageWrapper>
+        <ControlButtonGroup>
+          <KeyboardArrowLeft onClick={handlePrev} />
+          <KeyboardArrowRight onClick={handleNext} />
+        </ControlButtonGroup>
       </CarouselWrapper>
     );
 };
