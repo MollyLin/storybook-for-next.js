@@ -17,7 +17,7 @@ export default {
 // Ref: https://mui.com/material-ui/react-stepper/#text-with-carousel-effect
 export const Default = {
   args: {
-    position: 'bottom',
-    variant: 'dots',
+    dotPosition: 'bottom',
+    dotVariant: 'dots',
   }
 };

@@ -36,7 +36,7 @@ const images = [
   },
 ];
 
-export const SwipeableTextMobileStepper = ({ position, variant }) => {
+export const SwipeableTextMobileStepper = ({ dotPosition = 'bottom', dotVariant='dots' }) => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = images.length;
@@ -96,9 +96,9 @@ export const SwipeableTextMobileStepper = ({ position, variant }) => {
       </AutoPlaySwipeableViews>
       <MobileStepper
         steps={maxSteps}
-        position={position}
+        position={dotPosition}
         activeStep={activeStep}
-        variant={variant}
+        variant={dotVariant}
         nextButton={
           <Button
             size="small"
@@ -130,17 +130,11 @@ export const SwipeableTextMobileStepper = ({ position, variant }) => {
 
 SwipeableTextMobileStepper.propTypes = {
   /** Set the positioning type */
-  position: PropTypes.oneOf(['static', 'top', 'bottom']),
+  dotPosition: PropTypes.oneOf(['static', 'top', 'bottom']),
   /** The variant to use */
-  variant: PropTypes.oneOf(['progress', 'text', 'dots']),
+  dotVariant: PropTypes.oneOf(['progress', 'text', 'dots']),
   /** Optional click next slider handler */
   handleNext: PropTypes.func,
   /** Optional click prev slider handler */
   handleBack: PropTypes.func,
 }
-
-SwipeableTextMobileStepper.defaultProps = {
-  position: 'bottom',
-  variant: 'dots',
-}
-
