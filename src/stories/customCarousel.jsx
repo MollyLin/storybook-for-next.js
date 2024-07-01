@@ -64,16 +64,10 @@ const imageSource = [
   },
 ];
 
-export const Carousel = ({}) => {
+export const Carousel = ({ isAutoPlay=true }) => {
   const carouselRef = useRef();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageWidth, setImageWidth] = useState(600);
-
-  // initial 調整畫面
-  const handleUpdateCarouselWidth = () => {
-    const carouselWidth = carouselRef.current.clientWidth;
-    setImageWidth(carouselWidth);
-  };
 
   // 目前圖片左方的值 = 即將進場的 image 與目前的 image 距離 * 圖片的寬度(預設600)
   const setLeftPosition = ({ itemIndex }) => (itemIndex - currentIndex) * imageWidth;
@@ -91,9 +85,16 @@ export const Carousel = ({}) => {
     setCurrentIndex(prevIndex);
   };
 
-  const handleNext = () => {
+  // 使用 useCallback() 的原因: handleNext 為自動輪播 useEffect 的 dependency，避免重複計算
+  const handleNext = useCallback(() => {
     const { nextIndex } = getIndexes();
     setCurrentIndex(nextIndex);
+  }, [getIndexes]);
+
+  // initial 調整畫面
+  const handleUpdateCarouselWidth = () => {
+    const carouselWidth = carouselRef.current.clientWidth;
+    setImageWidth(carouselWidth);
   };
 
   useEffect(() => {
@@ -103,6 +104,16 @@ export const Carousel = ({}) => {
       window.removeEventListener('resize', handleUpdateCarouselWidth);
     };
   }, []);
+
+  useEffect(() => {
+    let intervalId;
+    if (isAutoPlay) {
+      intervalId = setInterval(() => {
+        handleNext();
+      }, 3000);
+    }
+    return () => clearInterval(intervalId);
+  }, [handleNext, isAutoPlay]);
 
   return (
       <CarouselWrapper
@@ -129,4 +140,7 @@ export const Carousel = ({}) => {
     );
 };
 
-Carousel.propTypes = {};
+Carousel.propTypes = {
+  /** 是否自動播放 */
+  isAutoPlay: PropTypes.bool,
+};
