@@ -65,7 +65,8 @@ const imageSource = [
 ];
 
 export const Carousel = ({ isAutoPlay=true }) => {
-  const carouselRef = useRef();
+  // Doc: https://react.dev/reference/react/useRef#manipulating-the-dom-with-a-ref
+  const carouselRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageWidth, setImageWidth] = useState(600);
 
@@ -106,14 +107,10 @@ export const Carousel = ({ isAutoPlay=true }) => {
   }, []);
 
   useEffect(() => {
-    let intervalId;
-    if (isAutoPlay) {
-      intervalId = setInterval(() => {
-        handleNext();
-      }, 3000);
-    }
+    if (!isAutoPlay) return;
+    const intervalId = setInterval(handleNext, 3000);
     return () => clearInterval(intervalId);
-  }, [handleNext, isAutoPlay]);
+  }, [handleNext, isAutoPlay]); // 當它們變化時重新設置定時器
 
   return (
       <CarouselWrapper
