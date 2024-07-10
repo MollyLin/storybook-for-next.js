@@ -34,7 +34,7 @@ const SuffixIcon = styled.span`
 `;
 
 /**
- * Buttons / Floating Action Button
+ * Buttons
  */
 export const muiButton = ({
   variant,

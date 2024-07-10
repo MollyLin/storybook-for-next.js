@@ -2,7 +2,7 @@ import { fn } from '@storybook/test';
 import { SwipeableTextMobileStepper } from './Carousel';
 
 export default {
-  title: 'Example/Carousel',
+  title: 'Material/Carousel',
   component: SwipeableTextMobileStepper,
   parameters: {
     layout: 'centered',

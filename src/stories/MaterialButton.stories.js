@@ -1,12 +1,16 @@
 import { muiButton } from './MaterialButton';
+import { action } from '@storybook/addon-actions';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 
 export default {
-  title: 'Example/MaterialButton',
+  title: 'Material/Button',
   component: muiButton,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
+  argTypes: {
+    onClick: { action: "clicked button event" }
+  },
 };
 
 export const Contained = {
