@@ -36,15 +36,15 @@ const SuffixIcon = styled.span`
 /**
  * Buttons
  */
-export const muiButton = ({
-  variant,
-  size,
+export const MuiButton = ({
+  variant = 'contained',
+  size = 'medium',
   label,
-  color,
-  isDisabled,
-  isLoading,
-  prefixIcon,
-  suffixIcon,
+  color = 'primary',
+  isDisabled = false,
+  isLoading = false,
+  prefixIcon = null,
+  suffixIcon = null,
   ...props
 }) => {
   return (
@@ -73,7 +73,7 @@ export const muiButton = ({
   )
 };
 
-muiButton.propTypes = {
+MuiButton.propTypes = {
   /** 設置按鈕類型 */
   variant: PropTypes.oneOf(['contained', 'outlined', 'text']),
   /** Sizes */
@@ -89,13 +89,3 @@ muiButton.propTypes = {
   /** 設置按鈕文字後方圖示 */
   suffixIcon: PropTypes.element,
 }
-
-muiButton.defaultProps = {
-  variant: 'contained',
-  size: 'medium',
-  color: 'primary',
-  isDisabled: false,
-  isLoading: false,
-  prefixIcon: null,
-  suffixIcon: null,
-};

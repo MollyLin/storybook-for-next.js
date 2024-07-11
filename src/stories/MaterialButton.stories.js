@@ -1,11 +1,11 @@
-import { muiButton } from './MaterialButton';
+import { MuiButton } from './MaterialButton';
 import { action } from '@storybook/addon-actions';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 
 export default {
   title: 'Material/Button',
-  component: muiButton,
+  component: MuiButton,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   argTypes: {
@@ -15,7 +15,7 @@ export default {
 
 export const Contained = {
   args: {
-    contained: true,
+    contained: 'contained',
     label: '點我購買',
   },
 };
