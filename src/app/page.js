@@ -14,6 +14,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { deepPurple } from '@mui/material/colors';
 
 const Item = styled.div`
   background-color: #f4f4f4;
@@ -165,14 +166,16 @@ export default function Home() {
                     width: '24px',
                     height: '24px',
                     minHeight: 'auto',
-                    mr: 1
+                    mr: 1,
+                    backgroundColor: deepPurple[300]
                   }}>
                     <AddIcon fontSize="12px" />
                   </Fab>
                   <Fab color="primary" aria-label="remove" sx={{
                     width: '24px',
                     height: '24px',
-                    minHeight: 'auto'
+                    minHeight: 'auto',
+                    backgroundColor: deepPurple[300]
                   }}>
                     <RemoveIcon fontSize="12px" />
                   </Fab>
