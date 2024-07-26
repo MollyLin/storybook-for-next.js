@@ -5,12 +5,15 @@ import Fab from '@mui/material/Fab';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import Stack from '@mui/material/Stack';
 import styled from '@emotion/styled';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const Item = styled.div`
   background-color: #f4f4f4;
@@ -55,7 +58,7 @@ export default function Home() {
       </Box>
       <Stack spacing={1}>
         <List sx={{ width: '100%', backgroundColor: '#f4f4f4', borderRadius: '0.5rem' }}>
-          <ListItem alignItems="flex-start">
+          <ListItem>
             <Box
               sx={{
                 borderRadius: '32px',
@@ -63,7 +66,6 @@ export default function Home() {
                 justifyContent: 'center',
                 alignItems: 'stretch',
                 alignSelf: 'center',
-                maxWidth: '342px',
                 fontSize: '12px',
                 color: 'blank',
                 textAlign: 'left',
@@ -81,7 +83,7 @@ export default function Home() {
                 ></Image>
               </ListItemAvatar>
               <Box
-                sx={{ width: '10rem', display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}
+                sx={{ display: 'flex', flex: '1 1 auto', alignItems: 'center', flexWrap: 'wrap' }}
               >
                 <Typography
                   component="p"
@@ -140,6 +142,41 @@ export default function Home() {
                     }
                   ></ListItemText>
                 </Box>
+              </Box>
+              <Box
+                sx={{ display: 'flex', flex: '1 1 auto', alignItems: 'center', flexWrap: 'wrap' }}
+              >
+                <Typography
+                  component="span"
+                  variant="h6"
+                  color="black"
+                  fontSize="14px"
+                  fontWeight="bold"
+                  sx={{
+                    width: '100%', textAlign: 'right'
+                  }}
+                >
+                  {"$148"}
+                </Typography>
+                <ButtonGroup aria-label="Basic button group" sx={{
+                  width: '100%', justifyContent: 'flex-end'
+                }}>
+                  <Fab color="primary" aria-label="add" sx={{
+                    width: '24px',
+                    height: '24px',
+                    minHeight: 'auto',
+                    mr: 1
+                  }}>
+                    <AddIcon fontSize="12px" />
+                  </Fab>
+                  <Fab color="primary" aria-label="remove" sx={{
+                    width: '24px',
+                    height: '24px',
+                    minHeight: 'auto'
+                  }}>
+                    <RemoveIcon fontSize="12px" />
+                  </Fab>
+                </ButtonGroup>
               </Box>
             </Box>
           </ListItem>
