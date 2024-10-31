@@ -17,29 +17,22 @@ const styleModalContent = {
   p: 4,
 };
 
-export const MuiModal=({
-  variant = 'contained',
-  ...props
-}) => {
+export const MuiModal = ({ variant = 'contained', ...props }) => {
   const [showModal, setShowModal] = useState(false);
   const handleOpen = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
 
   return (
     <>
-      <Button
-        variant={variant}
-        onClick={handleOpen}
-      >
+      <Button variant={variant} onClick={handleOpen}>
         Open modal
       </Button>
       {showModal && (
-          <Modal
+        <Modal
           open={showModal}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
+          aria-describedby="modal-modal-description">
           <Box sx={styleModalContent}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
               Text in a modal
@@ -51,7 +44,7 @@ export const MuiModal=({
         </Modal>
       )}
     </>
-  )
+  );
 };
 
 MuiModal.propTypes = {

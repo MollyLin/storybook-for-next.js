@@ -9,7 +9,7 @@ export default {
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   argTypes: {
-    onClick: { action: "clicked button event" }
+    onClick: { action: 'clicked button event' },
   },
 };
 
@@ -31,7 +31,7 @@ export const Loading = {
   args: {
     label: '載入中...',
     isLoading: true,
-  }
+  },
 };
 
 export const PrefixIcon = {
@@ -39,16 +39,16 @@ export const PrefixIcon = {
     variant: 'outlined',
     label: '刪除',
     prefixIcon: <DeleteIcon />,
-  }
-}
+  },
+};
 
 export const SuffixIcon = {
   args: {
     variant: 'outlined',
     label: '分享',
     suffixIcon: <SendIcon />,
-  }
-}
+  },
+};
 
 export const CustomizeButton = {
   args: {
@@ -57,6 +57,6 @@ export const CustomizeButton = {
     style: {
       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
       borderRadius: 50,
-    }
-  }
-}
+    },
+  },
+};

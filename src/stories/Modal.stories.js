@@ -7,6 +7,6 @@ export default {
 
 export const Basic = {
   args: {
-    variant: "contained"
-  }
-}
+    variant: 'contained',
+  },
+};

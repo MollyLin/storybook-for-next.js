@@ -1,13 +1,12 @@
-
 import { useState, useRef, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
 const CarouselWrapper = styled.div`
   position: relative;
-  width: ${ props => props.width}px;
+  width: ${(props) => props.width}px;
   height: 400px;
 `;
 
@@ -22,7 +21,7 @@ const ImageWrapper = styled.div`
 const Image = styled.img`
   width: 100%;
   position: absolute;
-  left: ${props => props.left}px;
+  left: ${(props) => props.left}px;
   transition: all 0.4s ease;
   object-fit: cover;
 `;
@@ -47,24 +46,20 @@ const ControlButtonGroup = styled.div`
 
 const imageSource = [
   {
-    imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=600&h=400&q=60',
+    imgPath: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=600&h=400&q=60',
   },
   {
-    imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=600&h=400&q=60',
+    imgPath: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=600&h=400&q=60',
   },
   {
-    imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&h=400',
+    imgPath: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&h=400',
   },
   {
-    imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=600&h=400&q=60',
+    imgPath: 'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=600&h=400&q=60',
   },
 ];
 
-export const Carousel = ({ isAutoPlay=true }) => {
+export const Carousel = ({ isAutoPlay = true }) => {
   // Doc: https://react.dev/reference/react/useRef#manipulating-the-dom-with-a-ref
   const carouselRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -77,7 +72,8 @@ export const Carousel = ({ isAutoPlay=true }) => {
     const prevIndex = currentIndex - 1 < 0 ? imageSource.length - 1 : currentIndex - 1;
     const nextIndex = (currentIndex + 1) % imageSource.length;
     return {
-      prevIndex, nextIndex,
+      prevIndex,
+      nextIndex,
     };
   }, [currentIndex]);
 
@@ -113,28 +109,18 @@ export const Carousel = ({ isAutoPlay=true }) => {
   }, [handleNext, isAutoPlay]); // 當它們變化時重新設置定時器
 
   return (
-      <CarouselWrapper
-        ref={carouselRef}
-        width={imageWidth}
-      >
-        <ImageWrapper>
-          {
-            imageSource.map((image, index) => (
-              <Image
-                key={index}
-                src={image.imgPath}
-                alt=""
-                left={setLeftPosition({ itemIndex: index })}
-              />
-            ))
-          }
-        </ImageWrapper>
-        <ControlButtonGroup>
-          <KeyboardArrowLeft onClick={handlePrev} />
-          <KeyboardArrowRight onClick={handleNext} />
-        </ControlButtonGroup>
-      </CarouselWrapper>
-    );
+    <CarouselWrapper ref={carouselRef} width={imageWidth}>
+      <ImageWrapper>
+        {imageSource.map((image, index) => (
+          <Image key={index} src={image.imgPath} alt="" left={setLeftPosition({ itemIndex: index })} />
+        ))}
+      </ImageWrapper>
+      <ControlButtonGroup>
+        <KeyboardArrowLeft onClick={handlePrev} />
+        <KeyboardArrowRight onClick={handleNext} />
+      </ControlButtonGroup>
+    </CarouselWrapper>
+  );
 };
 
 Carousel.propTypes = {

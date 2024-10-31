@@ -9,6 +9,4 @@ export default {
   tags: ['autodocs'],
 };
 
-export const Default = {
-
-};
+export const Default = {};

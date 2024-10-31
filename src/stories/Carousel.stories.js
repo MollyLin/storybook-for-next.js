@@ -19,5 +19,5 @@ export const Default = {
   args: {
     dotPosition: 'bottom',
     dotVariant: 'dots',
-  }
+  },
 };

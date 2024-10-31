@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "prettier --write .",
+    "lint:fix": "eslint --fix .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -18,7 +20,9 @@
     "@mui/icons-material": "^5.15.20",
     "@mui/material": "^5.15.20",
     "@mui/material-nextjs": "^5.15.11",
+    "eslint-plugin-prettier": "^5.2.1",
     "next": "14.2.10",
+    "prettier": "^3.3.3",
     "react": "^18",
     "react-dom": "^18",
     "react-swipeable-views": "^0.14.0"

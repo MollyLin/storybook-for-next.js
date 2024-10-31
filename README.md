@@ -1,37 +1,44 @@
 # Dev Note
+
 #### styled-components 與 server-rendered Material UI 專案不相容
-  > As of late 2021, styled-components is not compatible with server-rendered Material UI projects. This is because `babel-plugin-styled-components` isn't able to work with the `styled()`utility inside `@mui` packages. See this [GitHub issue](https://github.com/mui/material-ui/issues/29742) for more details.
-  We **strongly recommend** using **Emotion** for SSR projects.
+
+> As of late 2021, styled-components is not compatible with server-rendered Material UI projects. This is because `babel-plugin-styled-components` isn't able to work with the `styled()`utility inside `@mui` packages. See this [GitHub issue](https://github.com/mui/material-ui/issues/29742) for more details.
+> We **strongly recommend** using **Emotion** for SSR projects.
 
 Ref: [Material UI_Using styled-components](https://mui.com/material-ui/integrations/styled-components/)
 
 #### 8px 的網格系統
-  > Material UI uses [a recommended 8px scaling factor](https://m2.material.io/design/layout/understanding-layout.html) by default.
+
+> Material UI uses [a recommended 8px scaling factor](https://m2.material.io/design/layout/understanding-layout.html) by default.
 
 Ref: [Material UI_Spacing](https://mui.com/material-ui/customization/spacing/)
 
 #### [DisableElevation demo — Material UI from CodeSandBox](https://codesandbox.io/embed/disableelevation-demo-material-ui-j02r4c?fontsize=14&hidenavigation=1&theme=dark)
 
 #### 用 `Emotion` 在組件裡寫 `css prop` 時，Browser HTML DOM 會渲染:
->You have tried to stringify object returned from css function. It isn't supposed to be used directly (e.g. as value of the className prop), but rather handed to emotion so it can handle it (e.g. as value of css prop).
-且樣式無更新
+
+> You have tried to stringify object returned from css function. It isn't supposed to be used directly (e.g. as value of the className prop), but rather handed to emotion so it can handle it (e.g. as value of css prop).
+> 且樣式無更新
 
 原因: 使用 `jsx` function 取代 `React.createElement`。
-解法: 在引入 `@emotion/react` 的上方填上對應的註解: ``` /** @jsxImportSource @emotion/react */ ```，目的是讓編譯後的程式為 `JSX` 不是 `React.createElement`。
+解法: 在引入 `@emotion/react` 的上方填上對應的註解: `/** @jsxImportSource @emotion/react */`，目的是讓編譯後的程式為 `JSX` 不是 `React.createElement`。
 
 Ref: [Emotion_jsx-pragma](https://emotion.sh/docs/css-prop#jsx-pragma)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 #### Button- Cursor not-allowed
+
 - You should add `pointer-events: none;` back when you need to display [tooltips on disabled elements.](https://mui.com/material-ui/react-tooltip/#disabled-elements)
 
 ### install `react-swipeable-views`
-下官方文件的指令會出現 `Could not resolve dependency...` 的訊息，爬[Issues list](https://github.com/oliviertassinari/react-swipeable-views/issues/683) 解法是下
- `npm i react-swipeable-views --legacy-peer-deps` 解決 `NPM` 在處理 peer 依賴時的一些變化。
 
- ### 改善 `Components.defaultProps` 傳統寫法，替換為 `ES6 default parameters` 默認參數寫法
- 目的: 使默認值易於追蹤與維護
+下官方文件的指令會出現 `Could not resolve dependency...` 的訊息，爬[Issues list](https://github.com/oliviertassinari/react-swipeable-views/issues/683) 解法是下
+`npm i react-swipeable-views --legacy-peer-deps` 解決 `NPM` 在處理 peer 依賴時的一些變化。
+
+### 改善 `Components.defaultProps` 傳統寫法，替換為 `ES6 default parameters` 默認參數寫法
+
+目的: 使默認值易於追蹤與維護
 
 ## Getting Started
 
