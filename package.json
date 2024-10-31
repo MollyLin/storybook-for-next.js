@@ -10,7 +10,19 @@
     "format": "prettier --write .",
     "lint:fix": "eslint --fix .",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && git add ."
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "npm run format",
+      "npm run lint:fix"
+    ]
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
@@ -40,6 +52,8 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
     "eslint-plugin-storybook": "^0.8.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "postcss": "^8",
     "storybook": "^8.1.10"
   }
