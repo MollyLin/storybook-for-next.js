@@ -52,5 +52,5 @@ export const Warning = {
     primary: true,
     label: 'Delete now',
     backgroundColor: 'red',
-  }
+  },
 };

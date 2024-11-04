@@ -1,5 +1,5 @@
-'use client'
-import Image from "next/image";
+'use client';
+import Image from 'next/image';
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
@@ -32,20 +32,26 @@ export default function Home() {
           display: 'flex',
           alignItems: 'baseline',
           textAlign: 'center',
-        }}
-      >
-        <Fab size="small" color="#F4F4F4" aria-label="back" sx={{
-          flex: 'none',
         }}>
+        <Fab
+          size="small"
+          color="#F4F4F4"
+          aria-label="back"
+          sx={{
+            flex: 'none',
+          }}>
           <KeyboardArrowLeftIcon sx={{ color: '#000' }} />
         </Fab>
-        <Typography variant="h3" gutterBottom sx={{
-          color:'#000',
-          fontSize:'1rem',
-          fontWeight:'bold',
-          width: '100%',
-          paddingRight: '40px'
-        }}>
+        <Typography
+          variant="h3"
+          gutterBottom
+          sx={{
+            color: '#000',
+            fontSize: '1rem',
+            fontWeight: 'bold',
+            width: '100%',
+            paddingRight: '40px',
+          }}>
           Cart
         </Typography>
       </Box>
@@ -53,9 +59,10 @@ export default function Home() {
         sx={{
           textAlign: 'right',
           marginTop: '1.5rem',
-        }}
-      >
-        <Button variant="text" sx={{ textTransform: 'none', color: 'black' }}>Remove All</Button>
+        }}>
+        <Button variant="text" sx={{ textTransform: 'none', color: 'black' }}>
+          Remove All
+        </Button>
       </Box>
       <Stack spacing={1}>
         <List sx={{ width: '100%', backgroundColor: '#f4f4f4', borderRadius: '0.5rem' }}>
@@ -70,83 +77,56 @@ export default function Home() {
                 fontSize: '12px',
                 color: 'blank',
                 textAlign: 'left',
-              }}
-            >
-              <ListItemAvatar
-                sx={{ width: '4rem', mr: 1.5, mt: 0 }}
-              >
+              }}>
+              <ListItemAvatar sx={{ width: '4rem', mr: 1.5, mt: 0 }}>
                 <Image
                   alt="Men's Harrington Jacket"
                   src="https://cdn.builder.io/api/v1/image/assets/TEMP/a5a7a01d6e7a2b205cad80064f7454baa4d2ec134b63a05e0f24ad931c716aaf?apiKey=64907ebed4364efab5134402254f936d&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a7a01d6e7a2b205cad80064f7454baa4d2ec134b63a05e0f24ad931c716aaf?apiKey=64907ebed4364efab5134402254f936d&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a7a01d6e7a2b205cad80064f7454baa4d2ec134b63a05e0f24ad931c716aaf?apiKey=64907ebed4364efab5134402254f936d&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a7a01d6e7a2b205cad80064f7454baa4d2ec134b63a05e0f24ad931c716aaf?apiKey=64907ebed4364efab5134402254f936d&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a7a01d6e7a2b205cad80064f7454baa4d2ec134b63a05e0f24ad931c716aaf?apiKey=64907ebed4364efab5134402254f936d&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a7a01d6e7a2b205cad80064f7454baa4d2ec134b63a05e0f24ad931c716aaf?apiKey=64907ebed4364efab5134402254f936d&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a7a01d6e7a2b205cad80064f7454baa4d2ec134b63a05e0f24ad931c716aaf?apiKey=64907ebed4364efab5134402254f936d&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/a5a7a01d6e7a2b205cad80064f7454baa4d2ec134b63a05e0f24ad931c716aaf?apiKey=64907ebed4364efab5134402254f936d&"
                   width={64}
                   height={64}
-                  priority={true}
-                ></Image>
+                  priority={true}></Image>
               </ListItemAvatar>
-              <Box
-                sx={{ display: 'flex', flex: '1 1 auto', alignItems: 'center', flexWrap: 'wrap' }}
-              >
-                <Typography
-                  component="p"
-                  variant="h6"
-                  color="black"
-                  fontSize="14px"
-                  sx={{ width: '100%'}}
-                >
+              <Box sx={{ display: 'flex', flex: '1 1 auto', alignItems: 'center', flexWrap: 'wrap' }}>
+                <Typography component="p" variant="h6" color="black" fontSize="14px" sx={{ width: '100%' }}>
                   {"Men's Coaches Jacket"}
                 </Typography>
                 <Box
                   sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
-                    width: '100%'
-                  }}
-                >
+                    width: '100%',
+                  }}>
                   <ListItemText
                     sx={{
                       display: 'inline-block',
-                      color: '#272727'
+                      color: '#272727',
                     }}
                     disableTypography
                     primary="Size - "
                     secondary={
                       <>
-                        <Typography
-                          component="span"
-                          variant="body2"
-                          color="black"
-                          fontWeight="bold"
-                        >
+                        <Typography component="span" variant="body2" color="black" fontWeight="bold">
                           M
                         </Typography>
                       </>
-                    }
-                  ></ListItemText>
+                    }></ListItemText>
                   <ListItemText
                     sx={{
                       display: 'inline-block',
-                      color: '#272727'
+                      color: '#272727',
                     }}
                     disableTypography
                     primary="Color - "
                     secondary={
                       <>
-                        <Typography
-                          component="span"
-                          variant="body2"
-                          color="black"
-                          fontWeight="bold"
-                        >
+                        <Typography component="span" variant="body2" color="black" fontWeight="bold">
                           Lemon
                         </Typography>
                       </>
-                    }
-                  ></ListItemText>
+                    }></ListItemText>
                 </Box>
               </Box>
-              <Box
-                sx={{ display: 'flex', flex: '1 1 auto', alignItems: 'center', flexWrap: 'wrap' }}
-              >
+              <Box sx={{ display: 'flex', flex: '1 1 auto', alignItems: 'center', flexWrap: 'wrap' }}>
                 <Typography
                   component="span"
                   variant="h6"
@@ -154,29 +134,38 @@ export default function Home() {
                   fontSize="14px"
                   fontWeight="bold"
                   sx={{
-                    width: '100%', textAlign: 'right'
-                  }}
-                >
-                  {"$148"}
-                </Typography>
-                <ButtonGroup aria-label="Basic button group" sx={{
-                  width: '100%', justifyContent: 'flex-end'
-                }}>
-                  <Fab color="primary" aria-label="add" sx={{
-                    width: '24px',
-                    height: '24px',
-                    minHeight: 'auto',
-                    mr: 1,
-                    backgroundColor: deepPurple[300]
+                    width: '100%',
+                    textAlign: 'right',
                   }}>
+                  {'$148'}
+                </Typography>
+                <ButtonGroup
+                  aria-label="Basic button group"
+                  sx={{
+                    width: '100%',
+                    justifyContent: 'flex-end',
+                  }}>
+                  <Fab
+                    color="primary"
+                    aria-label="add"
+                    sx={{
+                      width: '24px',
+                      height: '24px',
+                      minHeight: 'auto',
+                      mr: 1,
+                      backgroundColor: deepPurple[300],
+                    }}>
                     <AddIcon fontSize="12px" />
                   </Fab>
-                  <Fab color="primary" aria-label="remove" sx={{
-                    width: '24px',
-                    height: '24px',
-                    minHeight: 'auto',
-                    backgroundColor: deepPurple[300]
-                  }}>
+                  <Fab
+                    color="primary"
+                    aria-label="remove"
+                    sx={{
+                      width: '24px',
+                      height: '24px',
+                      minHeight: 'auto',
+                      backgroundColor: deepPurple[300],
+                    }}>
                     <RemoveIcon fontSize="12px" />
                   </Fab>
                 </ButtonGroup>

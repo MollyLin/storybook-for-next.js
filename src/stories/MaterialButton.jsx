@@ -17,9 +17,7 @@ const enhanceStyleButton = ({ isLoading }) => css`
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  ${ isLoading &&
-   `align-items: center;`
-  }
+  ${isLoading && `align-items: center;`}
   &:disabled {
     ${cursorNotAllowed}
   }
@@ -54,9 +52,8 @@ export const MuiButton = ({
       size={size}
       color={color}
       disabled={isDisabled}
-      css={enhanceStyleButton({isLoading})}
-      {...props}
-    >
+      css={enhanceStyleButton({ isLoading })}
+      {...props}>
       {isLoading && (
         <CircularProgress
           sx={{
@@ -70,7 +67,7 @@ export const MuiButton = ({
       <span>{label}</span>
       {suffixIcon && <SuffixIcon>{suffixIcon}</SuffixIcon>}
     </Button>
-  )
+  );
 };
 
 MuiButton.propTypes = {
@@ -88,4 +85,4 @@ MuiButton.propTypes = {
   prefixIcon: PropTypes.element,
   /** 設置按鈕文字後方圖示 */
   suffixIcon: PropTypes.element,
-}
+};
